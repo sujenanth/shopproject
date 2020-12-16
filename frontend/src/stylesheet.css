@@ -1,9 +1,25 @@
+
+#root{
+    height: 100%;
+}
+html, body {
+    height: 100%;
+}
+
+.shoppingcart{
+    margin-left: 10px;
+}
+
+.wholeapp{
+    height: 100%;
+    width: 100%;
+}
+
 .overlay{
     min-height: 100vh;
     margin-left: 10px;
-}
-Container{
-    background-color: red;
+    height: 100%;
+    width: 100%;
 }
 
 .item{
@@ -12,11 +28,58 @@ Container{
 }
 
 .shopcontainer{
-    margin-right: 100px;
+    width: 90%;
+    display: grid;
+    grid-auto-rows: auto;
     padding-right: 100px;
+    margin-top: 50px;
+    position: absolute;
+    left: 100px;
 }
 
 div img{
     height: 300px;
     width: auto;
+}
+.itempreview{
+    width: 33%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+
+.itemsectionpage{
+    height: 100%;
+    width: 70%;
+}
+
+.itemimg{
+    max-width: 450px;
+    height: auto;
+}
+.itemsectiontext{
+    right: 0;
+}
+.itemsectionbutton{
+    position: absolute;
+    bottom: 100px;
+    right: 50px;
+}
+.register{
+    margin-left: 10px;
+    width: 40%;
+}
+.imgsection{
+    min-width: 300px;
+}
+.itemsection{
+    position: absolute;
+    left: 150px;
+    top: 150px;
+    width: 70%;
+    height: 100%;
+}
+.itemtitle{
+    position: absolute;
+    right: 0;
 }

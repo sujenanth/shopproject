@@ -14,6 +14,10 @@ const itemTemplate = new mongoose.Schema({
         type: String,
         required: false
     },
+    kategorie:{
+        type: String,
+        required: true
+    },
     imageurl:{
         type: String,
         required: true

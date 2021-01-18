@@ -5,7 +5,8 @@ class ItemStores{
         extendObservable(this, {
             items : [],
             isLoaded : false,
-            selected : '0'
+            selected : '0',
+            kategorie : []
         })
     }
 }

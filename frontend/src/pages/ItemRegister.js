@@ -8,7 +8,8 @@ const item = ({
     name: '',
     price: '',
     description: '',
-    imageurl: ''
+    imageurl: '',
+    kategorie: ''
 })
 
 
@@ -19,12 +20,14 @@ export default function ItemRegister(){
     const [price, setPrice] = useState("");
     const [imageurl, setImageurl] = useState("");
     const [description, setDescription] = useState("");
+    const [kategorie, setKategorie] = useState("");
     function Submit(data){
         item.name = name;
         item.price = price;
         item.imageurl = imageurl;
         item.description = description;
-        axios.post("http://172.20.10.12:8080/api/newItem",item)
+        item.kategorie = kategorie;
+        axios.post("/api/newItem",item)
         console.log(item)
         reset()
     }
@@ -44,6 +47,11 @@ export default function ItemRegister(){
                 <Form.Label>imageurl</Form.Label>
                 <Form.Control
                     value={imageurl} onChange={(e) => setImageurl(e.target.value)} type={"text"} name={"itemimageurl"}/>
+            </Form.Group>
+            <Form.Group controlId="exampleForm.ControlSelect2">
+                <Form.Label>Kategorie</Form.Label>
+                <Form.Control
+                    value={kategorie} onChange={(e) => setKategorie(e.target.value)} type={"text"} name={"itemkategorie"}/>
             </Form.Group>
             <Form.Group controlId="exampleForm.ControlTextarea1">
                 <Form.Label>Description</Form.Label>

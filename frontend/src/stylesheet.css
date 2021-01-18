@@ -1,6 +1,7 @@
 
 #root{
     height: 100%;
+    background-color: #f0f2f5;
 }
 html, body {
     height: 100%;
@@ -11,12 +12,14 @@ html, body {
 }
 
 .wholeapp{
-    height: 100%;
+    height: 80%;
     width: 100%;
 }
-
+.iconiconicon{
+    background-color: red;
+}
 .overlay{
-    min-height: 100vh;
+    min-height: 80%;
     margin-left: 10px;
     height: 100%;
     width: 100%;
@@ -69,8 +72,10 @@ div img{
     margin-left: 10px;
     width: 40%;
 }
-.imgsection{
-    min-width: 300px;
+.itemimg{
+    min-width: auto;
+    min-height: 250px;
+    max-height: 600px;
 }
 .itemsection{
     position: absolute;
@@ -82,4 +87,44 @@ div img{
 .itemtitle{
     position: absolute;
     right: 0;
+}
+.ant-menu-dark .ant-menu-inline {
+    height: 100%;
+}
+.customOverlay {
+    background: rgba(36, 123, 160, 0.7);
+}
+.customModal {
+    background: #b2dbbf;
+    max-width: 500px;
+    max-height: 500px;
+    width: 100%;
+    height: 100%;
+}
+
+.loginsection {
+    display: flex;
+    flex-direction: column;
+    height: 60%;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.tooltip_class{
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+}
+.itemsection_withimg{
+    width: 100%;
+    min-height: 250px;
+}
+.marketlogo{
+    width: 100%;
+    height: auto;
+}
+
+.buy_button{
+    background: linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
 }

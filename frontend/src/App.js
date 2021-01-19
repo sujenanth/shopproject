@@ -64,9 +64,6 @@ function App(props) {
         return self.indexOf(value) === index;
     }
 
-    useEffect(() => {
-        console.log(param)
-    },[param])
 
 
     async function loadData() {
@@ -112,8 +109,8 @@ function App(props) {
                                     >
                                     <Card
                                         hoverable
-                                        style={{width: 240}}
-                                        cover={<img alt={item.name} src={item.imageurl}
+                                        style={{width: 300}}
+                                        cover={<img className={"card_img"} alt={item.name} src={item.imageurl}
                                                     onClick={() => {
                                                         UserStores.currentItem = item.name
                                                         history.push(`/item/` + item._id)

@@ -5,7 +5,9 @@ const cors = require('cors');
 const itemTemplate = require('../model/Item')
 const teacherTemplate = require('../model/Teacher')
 
-router.post('/newItem', async (request, response) => {
+const jwt = require('jsonwebtoken')
+
+router.post('/newItem',authenticateToken, async (request, response) => {
     const newItem = new itemTemplate({
         name:request.body.name,
         price:request.body.price,
@@ -73,10 +75,14 @@ router.post('/login', (req, res) => {
                                 console.log(err)
                                 throw err
                             }
+                            let token = jwt.sign({teacher}, process.env.ACCESS_TOKEN_SECRET, {
+                                expiresIn: '12h'
+                            });
                             let data = ({
                                 username: teacher.username,
                                 success : true,
-                                lastname : teacher.lastName
+                                lastname : teacher.lastName,
+                                accesstoken: token
                             })
                             res.json(data)
                         }
@@ -101,5 +107,23 @@ router.post('/login', (req, res) => {
         res.json({error : 'No Input'})
     }
 })
+
+function authenticateToken(req, res, next){
+    const token = req.headers['authorization']
+    if(token == null){
+        console.log("no token")
+        return res.sendStatus(401)
+    }
+    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+        if (err) return res.sendStatus(403)
+        req.user = {
+            _id: user.teacher._id,
+            firstName: user.teacher.firstName,
+            lastName: user.teacher.lastName,
+            username: user.teacher.username
+        }
+        next()
+    })
+}
 
 module.exports = router;

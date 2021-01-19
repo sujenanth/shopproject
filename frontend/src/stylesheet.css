@@ -12,14 +12,14 @@ html, body {
 }
 
 .wholeapp{
-    height: 80%;
+    max-height: 70%;
     width: 100%;
 }
 .iconiconicon{
     background-color: red;
 }
 .overlay{
-    min-height: 80%;
+    min-height: 20%;
     margin-left: 10px;
     height: 100%;
     width: 100%;
@@ -127,4 +127,14 @@ div img{
 
 .buy_button{
     background: linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
+}
+
+.card_img{
+    max-height: 300px;
+}
+
+.drawer_button{
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
 }

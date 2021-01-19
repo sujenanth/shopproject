@@ -36,21 +36,38 @@ export default function ItemPage(){
     useEffect(() => {
         axios.post("/api/getItembyId",id).then(function (response){
             setItem(response.data[0]);
-            console.log(response.data)
-            console.log(item)
         })
     },[id])
 
     function pushToShoppingCart(){
-        UserStores.items.push(item)
-        console.log(UserStores.items)
-        handleOpen();
+        let abort = false;
+        for(let x = 0; x < UserStores.items.length; x++){
+            if(UserStores.items[x]._id === item._id){
+                if(UserStores.items[x].anzahl === undefined){
+                    UserStores.items[x].anzahl = 2;
+                    abort = true;
+                    handleOpen();
+                    break;
+                }
+                else{
+                    UserStores.items[x].anzahl = UserStores.items[x].anzahl + 1;
+                    abort = true;
+                    handleOpen();
+                    break;
+                }
+            }
+        }
+        if(abort !== true){
+            UserStores.items.push(item);
+            handleOpen();
+        }
+
     }
 
     return(
         <React.Fragment>
                     <div className={"itemsection_withimg"}>
-                        <div style={{float: 'right'}}>
+                        <div style={{float: 'right', maxWidth: '30%'}}>
                             <h1>{item.name}</h1>
                             <div style={{textAlign:'right'}}>
                                 <p>Preis: {item.price}</p>

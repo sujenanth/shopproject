@@ -26,6 +26,7 @@ import Login from "./components/Login";
 import Fab from '@material-ui/core/Fab';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import ShopDrawer from "./components/ShopDrawer";
+import ShoppingCart from "./pages/ShoppingCart";
 
 
 const { Header, Content, Footer, Sider } = Layout;
@@ -99,10 +100,6 @@ function AppRun(){
             )
         }
     },[items.length])
-
-    useEffect(() => {
-        setPath(UserStores.currentItem)
-    })
 
     useEffect(() => {
         if(items === undefined){
@@ -200,6 +197,7 @@ function AppRun(){
                         <Switch>
                             <Route exact path="/" component={App}/>
                             <Route path="/item/:id" component={ItemPage}/>
+                            <Route exact path="/cart" component={ShoppingCart}/>
                             <Route path="/itemregister" component={ItemRegister}/>
                             <Route path="/:kategorie" component={App}/>
                         </Switch>

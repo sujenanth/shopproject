@@ -35,12 +35,13 @@ export default function Login(props){
     const [username, setUsername] = useState()
     const [password, setPassword] = useState();
 
+    const [error, setError] = useState(false);
 
     const doLogin = async () => {
-            let teacher = {
-                name: username,
-                password: password,
-            }
+        let teacher = {
+            name: username,
+            password: password,
+        }
         await axios.post('/api/login/',teacher).then(
             data => {
                 if(data.data.success){
@@ -51,10 +52,14 @@ export default function Login(props){
                     window.location.reload();
                     console.log(localStorage.getItem("user"))
                 }
+                else{
+                    console.log("error")
+                    setError(true)
+                    reset();
+                }
             }
         ).catch(error => {
-            console.log(error)
-            reset();
+            
         })
     }
 
@@ -63,30 +68,35 @@ export default function Login(props){
             overlay: 'customOverlay',
             modal: 'customModal',
         }} center open={open} onClose={setClose}>
-                <h2>Login</h2>
-                <Divider/>
-                <br/>
-                <div className={"loginsection"}>
-                    <form style={formstyle}>
-                        <div>
-                            <InputLabel htmlFor="my-input"/>
-                            <TextField name="username" style={txtfield} value={username} onChange={(e) => setUsername(e.target.value)}
-                             label={"Username"} id="username" aria-describedby="my-helper-text" />
-                            <FormHelperText id="my-helper-text">Ihr Username</FormHelperText>
-                        </div>
-                        <div>
-                            <InputLabel htmlFor="my-input"/>
-                            <TextField name="password" value={password} onChange={(e) => setPassword(e.target.value)}
-                             style={txtfield} label={"Password"} id="password" type={"password"} aria-describedby="my-helper-text" />
-                            <FormHelperText id="my-helper-text">Ihres Passwort</FormHelperText>
-                        </div>
-                        <div>
-                            <Button onClick={() => doLogin()} style={buttonstyle}>
-                                Log In
-                            </Button>
-                        </div>
-                    </form>
-                </div>
+            <h2>Login</h2>
+            <Divider/>
+            <br/>
+            <div className={"loginsection"}>
+                {error &&
+                    <div>
+                        <p style={{color : 'red'}}>Login ist falsch</p>
+                    </div>
+                }
+                <form style={formstyle}>
+                    <div>
+                        <InputLabel htmlFor="my-input"/>
+                        <TextField name="username" style={txtfield} value={username} onChange={(e) => setUsername(e.target.value)}
+                                   label={"Username"} id="username" aria-describedby="my-helper-text" />
+                        <FormHelperText id="my-helper-text">Ihr Username</FormHelperText>
+                    </div>
+                    <div>
+                        <InputLabel htmlFor="my-input"/>
+                        <TextField name="password" value={password} onChange={(e) => setPassword(e.target.value)}
+                                   style={txtfield} label={"Password"} id="password" type={"password"} aria-describedby="my-helper-text" />
+                        <FormHelperText id="my-helper-text">Ihres Passwort</FormHelperText>
+                    </div>
+                    <div>
+                        <Button onClick={() => doLogin()} style={buttonstyle}>
+                            Log In
+                        </Button>
+                    </div>
+                </form>
+            </div>
         </Modal>
     )
 }

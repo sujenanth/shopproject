@@ -9,9 +9,9 @@ import {useHistory} from 'react-router-dom';
 
 export default function ShopDrawer(props){
     const history = useHistory();
-
     const { visible, onClose } = props
     const [align, setAlign] = useState("bottom")
+
 
     const OverviewButton = styled(Button)({
         backgroundColor: '#3bb78f',

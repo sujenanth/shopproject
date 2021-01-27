@@ -72,7 +72,7 @@ router.post('/login', (req, res) => {
                     bcrypt.compare(req.body.password,teacher.password,(err, result) => {
                         if(result){
                             if(err){
-                                console.log(err)
+                                res.json(err)
                                 throw err
                             }
                             let token = jwt.sign({teacher}, process.env.ACCESS_TOKEN_SECRET, {

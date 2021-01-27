@@ -55,6 +55,9 @@ function AppRun(){
         setShowLogin(false)
     }
 
+    useEffect(() => {
+    },[])
+
 
     async function loadData() {
         let data;
@@ -171,7 +174,7 @@ function AppRun(){
                 <br/>
                 <div style={{display : 'flex'}}>
                     <p>Dark Mode:   </p>
-                    <AntDSwitch onChange={(e) => changeTheme()}/>
+                    <AntDSwitch defaultChecked onChange={(e) => changeTheme()}/>
                 </div>
             </Modal>
             <Layout className="site-layout">

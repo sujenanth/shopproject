@@ -58,5 +58,5 @@ Enthält die wichtigsten Daten zum ***eingeloggten User***.
 
 Wir haben sehr viel Zeit in den Shop investiert und finden, dass er auch sehr gut herausgekommen ist und wir sind stolz auf unsere Arbeit. Wir hätten natürlich noch mehr machen können, haben aber bevorzugt, neue Entwicklungsparameter, wie NodeJS als Backend, zu benutzen und neues dazu zu lernen. Wir würden uns selber mindestens eine 5 wenn nicht schon eine 5.5 geben, wenn wir bedenken wie viel Zeit wir investiert haben, um z.B auch Tutorials und Informationen zu beschaffen. 
 
-
+Die neuste Version unseres Projektes befindet sich im Branch "PushingBranch".
 
